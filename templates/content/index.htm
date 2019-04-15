@@ -1,0 +1,212 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<title>MC影视</title>
+<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='css/rest.css') }}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.10.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/TouchSlide.1.1.js') }}"></script>
+<link href="{{ url_for('static', filename='css/jquery.mmenu.all.css') }}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.mmenu.min.all.js') }}"></script>
+<script>
+$(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#other').mmenu();});</script>
+</head>
+<body id="mobile_wrap">
+<div class="statusbar-overlay"> </div>
+<div class="panel-overlay"> </div>
+<div class="panel panel-left panel-cover">
+
+<nav id="dy">
+    <ul class="mm-list mm-panel mm-opened mm-current" id="mm-0">
+        <li><a target="_blank" href="javascript:void(0);"> 动作</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 喜剧</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 爱情</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 科幻</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 恐怖</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 剧情</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 战争</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 伦理</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 动作</a></li>
+    </ul>
+</nav>
+<nav id="dsj">
+    <ul>
+        <li><a target="_blank" href="javascript:void(0);"> 国产</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 香港</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 韩国</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 欧美</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 海外</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 日本</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 台湾</a></li>
+    </ul>
+</nav>
+<nav id="zy">
+    <ul>
+        <li><a target="_blank" href="javascript:void(0);"> 大陆</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 台湾</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 韩国</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 香港</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 日本</a></li>
+    </ul>
+</nav>
+<nav id="dm">
+    <ul>
+        <li><a target="_blank" href="javascript:void(0);"> 大陆</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 日本</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 美国</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 台湾</a></li>
+        <li><a target="_blank" href="javascript:void(0);"> 其他</a></li>
+    </ul>
+</nav>
+<nav id="other">
+    <ul>
+        <li><a target="_blank" href="javascript:void(0);"> 福利</a></li>
+    </ul>
+</nav>
+</div>
+<div class="views">
+  <div class="view view-main">
+    <div class="pages">
+      <div class="wrap">
+        <div class="header">
+          <div class="header_nav ">
+            <ul>
+                <li><a href="#dy" class="meu open-panel">电影</a></li>
+                <li><a href="#dsj" class="meu open-panel">电视剧</a></li>
+                <li><a href="#zy" class="meu open-panel">综艺</a></li>
+                <li><a href="#dm;" class="meu open-panel">动漫</a></li>
+                <li><a href="#other" class="meu open-panel">其他</a></li>
+            </ul>
+          </div>
+          <div class="h_logo"><a href="javascript:void(0);" class="h_nav">最新</a><a href="javascript:void(0);" class="h_nav">排行榜</a>
+            <div class="logo"> <a href="javascript:void(0);"><img src=""></a></div>
+          </div>
+          <div class="h_so">
+              <form  action="/search.php" method="post">
+      <input name="searchword" type="text"  class="h_so_inp h_so_inp_w1">
+      <input value="" type="submit" class="so_btn">
+      </form>
+          </div>
+        </div>
+        <div id="focus" class="focus">
+          <div class="bd">
+            <ul>
+ <li> <a class="pic" href="javascript:void(0);"><img src="{{ url_for('static', filename='img/s1.jpg') }}" /></a> <a class="tit" href="javascript:void(0)detail/?13779.html">史诗级动画</a> </li>
+<li> <a class="pic" href="javascript:void(0);"><img src="{{ url_for('static', filename='img/s1.jpg') }}" /></a> <a class="tit" href="javascript:void(0)detail/?13102.html">漫威新英雄诞生.前工程师斯科特出狱后没想到一次意外的偷盗事件让他成为了新一代“蚁人”</a> </li>
+ <li> <a class="pic" href="javascript:void(0);"><img src="{{ url_for('static', filename='img/s1.jpg') }}" /></a> <a class="tit" href="javascript:void(0)detail/?13739.html">老炮儿在北京话中，专指提笼遛鸟，无所事事的老混混儿。</a> </li>
+ <li> <a class="pic" href="javascript:void(0);"><img src="{{ url_for('static', filename='img/s1.jpg') }}" /></a> <a class="tit" href="javascript:void(0)detail/?13230.html">一幕幕生猛、搞笑的青春趣事</a> </li>
+            </ul>
+          </div>
+          <div class="hd">
+            <ul>
+            </ul>
+          </div>
+        </div>
+        <script type="text/javascript">
+				TouchSlide({ 
+					slideCell:"#focus",
+					titCell:".hd ul",
+					mainCell:".bd ul", 
+					effect:"leftLoop", 
+					autoPage:true,
+					autoPlay:true 
+				});
+			  </script>
+              <script>
+index_top_1();
+</script>
+        <div id="s1" class="d_main w98 mian_bo">
+          <div class="hd mian_title"><a href="javascript:void(0);" class="more"></a>
+            <h2>电影</h2>
+            <ul>
+              <li><a>最新</a></li>
+            </ul>
+          </div>
+          <div class="bd v_list">
+            <ul class="clearfix">
+                <li>
+                    <div class="v_pic">
+                    <div class="v_title">更新到42集(..</div>
+                    <a href="article.htm"><img src="http://p.zx8.cc:6789/uploads/allimg/201604/85eebb084bd9fe4c.jpg"></a></div>
+                    <a href="article.htm"> <h2>欢乐颂</h2></a>
+                </li>
+            </ul>
+          </div>
+          <script type="text/javascript">TouchSlide({ slideCell:"#s1" });</script> 
+        </div>
+                      <script>
+index_top_2();
+</script>
+        <div id="s2" class="d_main w98 mian_bo">
+          <div class="hd mian_title"><a href="javascript:void(0);" class="more"></a>
+            <h2>电视剧</h2>
+            <ul>
+              <li><a>最新</a></li>
+            </ul>
+          </div>
+          <div class="bd v_list">
+            <ul class="clearfix">
+                <li>
+                    <div class="v_pic">
+                    <div class="v_title"></div>
+                    <a href="article.htm"><img src=""></a></div>
+                    <a href="article.htm"> <h2></h2></a>
+                </li>
+            </ul>
+
+          </div>
+          <script type="text/javascript">TouchSlide({ slideCell:"#s2" });</script> 
+        </div>
+        <div id="s3" class="d_main w98 mian_bo">
+          <div class="hd mian_title"><a href="javascript:void(0);" class="more"></a>
+            <h2>综艺</h2>
+            <ul>
+              <li><a>最新</a></li>
+            </ul>
+          </div>
+          <div class="bd v_list">
+            <ul class="clearfix">
+                <li>
+                    <div class="v_pic">
+                    <div class="v_title"></div>
+                    <a href="article.htm"><img src=""></a></div>
+                    <a href="article.htm"> <h2></h2></a>
+                </li>
+            </ul>
+
+          </div>
+          <script type="text/javascript">TouchSlide({ slideCell:"#s2" });</script>
+        </div>
+        <div id="s4" class="d_main w98 mian_bo">
+          <div class="hd mian_title"><a href="javascript:void(0);" class="more"></a>
+            <h2>动漫</h2>
+            <ul>
+              <li><a>最新</a></li>
+            </ul>
+          </div>
+          <div class="bd v_list">
+            <ul class="clearfix">
+                <li>
+                    <div class="v_pic">
+                    <div class="v_title"></div>
+                    <a href="article.htm"><img src=""></a></div>
+                    <a href="article.htm"> <h2></h2></a>
+                </li>
+            </ul>
+
+          </div>
+          <script type="text/javascript">TouchSlide({ slideCell:"#s2" });</script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                      <script>
+index_footer_1();
+</script>
+<span style="display:none"><script>tongji();</script></span><br /><br style="margin-top:70px" />在线吧手机电影网
+</body>
+</html>
