@@ -6,15 +6,15 @@ from utils.functions import queryset_to_json
 
 
 class MySource(Resource):
-    # queryset = None
+    # model = None
     def get(self):
-        all_resource =self.queryset.query
+        all_resource =self.model.query
         all_count = all_resource.count()
-        data = {'count': all_count}
         try:
             page = abs(int(request.args.get('page') or 1))
             size = abs(int(request.args.get('size') or 30))
             z_page, y = divmod(all_count, size)
+            data = {'count': size}
             if page > z_page:
                 data['previous'] = request.path + '?page=' + str(page - 1) + '&size=' + str(size);
                 data['results'] = queryset_to_json(all_resource[-y:])
@@ -30,23 +30,23 @@ class MySource(Resource):
 
 
 class MovieSource(MySource):
-    queryset = Movie
+    model = Movie
 
 
 class FuliSource(MySource):
-    queryset = Fuli
+    model = Fuli
 
 
 class TvSource(MySource):
-    queryset = Tv
+    model = Tv
 
 
 class AnimationSource(MySource):
-    queryset = Animation
+    model = Animation
 
 
 class ShowSource(MySource):
-    queryset = Show
+    model = Show
 
 
 class TvListSource(Resource):
@@ -80,3 +80,16 @@ class ShowListSource(Resource):
         show_list = show.show_list
         data = {'count': show_list.count(), 'results': queryset_to_json(show_list), 'info': show_info}
         return data
+
+
+class Detail(Resource):
+    # model = None
+    def get(self, id):
+        obj = self.model.query.get(id)
+        data = obj.__dict__
+        data.pop('_sa_instance_state', None)
+        return data
+
+
+class MovieDetail(Detail):
+    model = Movie
