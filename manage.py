@@ -22,7 +22,8 @@ api.add_resource(ShowSource, '/video/shows/')
 api.add_resource(TvListSource, '/video/tv_list/')
 api.add_resource(AnimationListSource, '/video/animation_list/')
 api.add_resource(ShowListSource, '/video/show_list/')
-api.add_resource(MovieDetail, '/video/movie_detail/<int:id>')
+api.add_resource(MovieDetail, '/video/movie_details/<int:id>')
+api.add_resource(FuliDetail, '/video/fuli_details/<int:id>')
 manager = Manager(app)
 
 

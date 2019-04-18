@@ -93,3 +93,7 @@ class Detail(Resource):
 
 class MovieDetail(Detail):
     model = Movie
+
+
+class FuliDetail(Detail):
+    model = Fuli
