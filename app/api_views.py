@@ -1,3 +1,5 @@
+import urllib.parse
+
 from flask import request
 from flask_restful import Resource
 
@@ -6,6 +8,9 @@ from utils.functions import queryset_to_json
 
 
 class MySource(Resource):
+    """
+    自定义一个带分页的视频信息基类
+    """
     # model = None
     def get(self):
         all_resource =self.model.query
@@ -30,28 +35,43 @@ class MySource(Resource):
 
 
 class MovieSource(MySource):
+    """
+    电影
+    """
     model = Movie
 
 
 class FuliSource(MySource):
+    """
+    福利
+    """
     model = Fuli
 
 
 class TvSource(MySource):
+    """电视剧"""
     model = Tv
 
 
 class AnimationSource(MySource):
+    """动漫"""
     model = Animation
 
 
 class ShowSource(MySource):
+    """
+    综艺
+    """
     model = Show
 
 
 class TvListSource(Resource):
+    """
+    一部电视剧的详情及集数
+    """
     def get(self):
         name = request.args.get('name')
+        name = urllib.parse.unquote(name)
         tv = Tv.query.filter(Tv.tv_name==name).first()
         tv_info = tv.__dict__.copy()
         tv_info.pop('_sa_instance_state', None)
@@ -61,6 +81,9 @@ class TvListSource(Resource):
 
 
 class AnimationListSource(Resource):
+    """
+    一部动漫的详情及集数
+    """
     def get(self):
         name = request.args.get('name')
         animation = Animation.query.filter(Animation.tv_name==name).first()
@@ -72,6 +95,9 @@ class AnimationListSource(Resource):
 
 
 class ShowListSource(Resource):
+    """
+    一部综艺的详情及集数
+    """
     def get(self):
         name = request.args.get('name')
         show = Show.query.filter(Show.tv_name==name).first()
@@ -83,6 +109,9 @@ class ShowListSource(Resource):
 
 
 class Detail(Resource):
+    """
+    单一视频的详情(非连续剧类型)基类
+    """
     # model = None
     def get(self, id):
         obj = self.model.query.get(id)
@@ -92,8 +121,15 @@ class Detail(Resource):
 
 
 class MovieDetail(Detail):
+    """
+    一部电影的详情
+    """
     model = Movie
 
 
 class FuliDetail(Detail):
+    """
+    一部福利的详情
+    """
     model = Fuli
+
