@@ -86,7 +86,8 @@ class AnimationListSource(Resource):
     """
     def get(self):
         name = request.args.get('name')
-        animation = Animation.query.filter(Animation.tv_name==name).first()
+        name = urllib.parse.unquote(name)
+        animation = Animation.query.filter(Animation.animation_name==name).first()
         animation_info = animation.__dict__.copy()
         animation_info.pop('_sa_instance_state', None)
         animation_list = animation.animation_list
@@ -100,7 +101,8 @@ class ShowListSource(Resource):
     """
     def get(self):
         name = request.args.get('name')
-        show = Show.query.filter(Show.tv_name==name).first()
+        name = urllib.parse.unquote(name)
+        show = Show.query.filter(Show.show_name==name).first()
         show_info = show.__dict__.copy()
         show_info.pop('_sa_instance_state', None)
         show_list = show.show_list
