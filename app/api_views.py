@@ -12,26 +12,37 @@ class MySource(Resource):
     自定义一个带分页的视频信息基类
     """
     # model = None
+
     def get(self):
-        all_resource =self.model.query
+        all_resource = self.model.query
         all_count = all_resource.count()
         try:
             page = abs(int(request.args.get('page') or 1))
             size = abs(int(request.args.get('size') or 30))
             z_page, y = divmod(all_count, size)
+            kind = request.args.get('kind')
             data = {'count': size}
+            if size == 30:
+                data['pages'] = z_page + 1
+            if kind and self.model == Movie:
+                all_resource = all_resource.filter(self.model.movie_type == urllib.parse.unquote(kind))
+            elif kind and self.model == Tv:
+                all_resource = all_resource.filter(self.model.tv_type == urllib.parse.unquote(kind))
+            elif kind and self.model == Show:
+                all_resource = all_resource.filter(self.model.area == urllib.parse.unquote(kind))
+            elif kind and self.model == Animation:
+                all_resource = all_resource.filter(self.model.area == urllib.parse.unquote(kind))
             if page > z_page:
-                data['previous'] = request.path + '?page=' + str(page - 1) + '&size=' + str(size);
+                data['previous'] = request.path + '?page=' + str(page - 1) + '&size=' + str(size)
                 data['results'] = queryset_to_json(all_resource[-y:])
             elif page <= z_page:
                 data['next'] = request.path + '?page=' + str(page + 1) + '&size=' + str(size)
                 if page != 1:
-                    data['previous'] = request.path + '?page=' + str(page - 1) + '&size=' + str(size);
+                    data['previous'] = request.path + '?page=' + str(page - 1) + '&size=' + str(size)
                 data['results'] = queryset_to_json(all_resource[(page - 1) * size:page * size])
             return data
         except Exception as e:
             return {'error': str(e)}
-
 
 
 class MovieSource(MySource):
@@ -69,10 +80,11 @@ class TvListSource(Resource):
     """
     一部电视剧的详情及集数
     """
+
     def get(self):
         name = request.args.get('name')
         name = urllib.parse.unquote(name)
-        tv = Tv.query.filter(Tv.tv_name==name).first()
+        tv = Tv.query.filter(Tv.tv_name == name).first()
         tv_info = tv.__dict__.copy()
         tv_info.pop('_sa_instance_state', None)
         tv_list = tv.tv_list
@@ -84,10 +96,11 @@ class AnimationListSource(Resource):
     """
     一部动漫的详情及集数
     """
+
     def get(self):
         name = request.args.get('name')
         name = urllib.parse.unquote(name)
-        animation = Animation.query.filter(Animation.animation_name==name).first()
+        animation = Animation.query.filter(Animation.animation_name == name).first()
         animation_info = animation.__dict__.copy()
         animation_info.pop('_sa_instance_state', None)
         animation_list = animation.animation_list
@@ -99,10 +112,11 @@ class ShowListSource(Resource):
     """
     一部综艺的详情及集数
     """
+
     def get(self):
         name = request.args.get('name')
         name = urllib.parse.unquote(name)
-        show = Show.query.filter(Show.show_name==name).first()
+        show = Show.query.filter(Show.show_name == name).first()
         show_info = show.__dict__.copy()
         show_info.pop('_sa_instance_state', None)
         show_list = show.show_list
@@ -114,6 +128,7 @@ class Detail(Resource):
     """
     单一视频的详情(非连续剧类型)基类
     """
+
     # model = None
     def get(self, id):
         obj = self.model.query.get(id)
@@ -134,4 +149,3 @@ class FuliDetail(Detail):
     一部福利的详情
     """
     model = Fuli
-

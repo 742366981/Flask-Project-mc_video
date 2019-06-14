@@ -118,7 +118,7 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#other').mmenu();});
           <div class="hd mian_title">
             <h2>电影</h2>
             <ul>
-              <li><a>最新</a></li>
+              <li><a>全部</a></li>
             </ul>
           </div>
           <div class="bd v_list">
@@ -135,15 +135,16 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#other').mmenu();});
             <div id="fy">
                 <ul>
                     <li id="previous"><a href="">上一页</a></li>
-                    <li id="p1"><a href=""></a></li>
-                    <li id="p2"><a href=""></a></li>
-                    <li id="p3"><a href=""></a></li>
-                    <li id="p4"><a href=""></a></li>
-                    <li id="p5"><a href=""></a></li>
+                    <li id="p1"><a href="">1</a></li>
+                    <li id="p2"><a href="">2</a></li>
+                    <li id="p3"><a href="">3</a></li>
+                    <li id="p4"><a href="">4</a></li>
+                    <li id="p5"><a href="">5</a></li>
                     <li id="next"><a href="">下一页</a></li>
+                    <li id="current">1/100</li>
                 </ul>
             </div>
-          <script type="text/javascript">TouchSlide({ slideCell:"#s1" });</script> 
+          <script type="text/javascript">TouchSlide({ slideCell:"#s1" });</script>
         </div>
 
       </div>
@@ -151,6 +152,6 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#other').mmenu();});
   </div>
 </div>
 <span style="display:none;"></span><br /><br style="margin-top:70px" />MC影视
-<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+<script src="{{ url_for('static', filename='js/display.js') }}"></script>
 </body>
 </html>

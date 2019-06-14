@@ -13,6 +13,7 @@
 .w98 {
 	width: 98%;
 	margin: 5px auto;
+	overflow: -webkit-paged-y;
 }
 .mt10 {
 	margin: 10px auto
@@ -258,6 +259,7 @@
 	width: 33.33%;
 	float: left;
 	margin-bottom: 10px;
+    text-align: center;
 }
 .v_list li .v_pic {
 	width: 92%;
@@ -592,3 +594,19 @@ body.panel-closing .views {
 
 .btnsub{width: 100%; padding: 6px 12px; margin-bottom: 0px; font-size: 14px; font-weight: 400; line-height: 1.42857; text-align: center; white-space: nowrap; vertical-align: middle; -moz-user-select: none; background-image: none; background-color: rgb(236, 151, 31); border: 1px solid transparent; border-radius: 4px; cursor: pointer; display: inline-block; color:#fff;}
 .script_960{ border:#F00 solid 1px;margin: 1px auto;overflow:hidden;}
+#fy li {
+    display: inline;
+    font-size: 16px;
+    margin-left: 3px;
+}
+#fy li a {
+    font-size: 16px;
+    color: -webkit-link;
+}
+#fy {
+    text-align: center;
+}
+
+
+
+

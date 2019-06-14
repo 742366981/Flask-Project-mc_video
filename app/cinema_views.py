@@ -62,6 +62,51 @@ def show_detail(name):
     return render_template('content/list_detail.htm')
 
 
-@cinema_blueprint.route('/display_movie/<string:type>/', methods=['GET'])
-def display_movie(type):
+@cinema_blueprint.route('/movie_display/<string:kind>/', methods=['GET'])
+def movie_display(kind):
+    """
+    电影列表页
+    :param type: 电影类型,str类型
+    :return:
+    """
+    return render_template('content/display.htm')
+
+
+@cinema_blueprint.route('/tv_display/<string:kind>/', methods=['GET'])
+def tv_display(kind):
+    """
+    电视剧列表页
+    :param type: 电视剧类型,str类型
+    :return:
+    """
+    return render_template('content/display.htm')
+
+
+@cinema_blueprint.route('/show_display/<string:kind>/', methods=['GET'])
+def show_display(kind):
+    """
+    综艺列表页
+    :param type: 电视剧类型,str类型
+    :return:
+    """
+    return render_template('content/display.htm')
+
+
+@cinema_blueprint.route('/animation_display/<string:kind>/', methods=['GET'])
+def animation_display(kind):
+    """
+    电视剧列表页
+    :param type: 电视剧类型,str类型
+    :return:
+    """
+    return render_template('content/display.htm')
+
+
+@cinema_blueprint.route('/fuli_display/<string:kind>/', methods=['GET'])
+def fuli_display(kind):
+    """
+    电视剧列表页
+    :param type: 电视剧类型,str类型
+    :return:
+    """
     return render_template('content/display.htm')
