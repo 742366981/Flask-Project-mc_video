@@ -22,16 +22,22 @@ class MySource(Resource):
             z_page, y = divmod(all_count, size)
             kind = request.args.get('kind')
             data = {'count': size}
-            if size == 30:
-                data['pages'] = z_page + 1
             if kind and self.model == Movie:
                 all_resource = all_resource.filter(self.model.movie_type == urllib.parse.unquote(kind))
+                all_count = all_resource.count()
+                z_page, y = divmod(all_count, size)
             elif kind and self.model == Tv:
                 all_resource = all_resource.filter(self.model.tv_type == urllib.parse.unquote(kind))
+                all_count = all_resource.count()
+                z_page, y = divmod(all_count, size)
             elif kind and self.model == Show:
                 all_resource = all_resource.filter(self.model.area == urllib.parse.unquote(kind))
+                all_count = all_resource.count()
+                z_page, y = divmod(all_count, size)
             elif kind and self.model == Animation:
                 all_resource = all_resource.filter(self.model.area == urllib.parse.unquote(kind))
+                all_count = all_resource.count()
+                z_page, y = divmod(all_count, size)
             if page > z_page:
                 data['previous'] = request.path + '?page=' + str(page - 1) + '&size=' + str(size)
                 data['results'] = queryset_to_json(all_resource[-y:])
@@ -40,6 +46,8 @@ class MySource(Resource):
                 if page != 1:
                     data['previous'] = request.path + '?page=' + str(page - 1) + '&size=' + str(size)
                 data['results'] = queryset_to_json(all_resource[(page - 1) * size:page * size])
+            if size == 30:
+                data['pages'] = z_page + 1
             return data
         except Exception as e:
             return {'error': str(e)}
