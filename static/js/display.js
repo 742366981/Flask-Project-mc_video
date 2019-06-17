@@ -16,7 +16,7 @@ $(function () {
         $('.mian_title h2').text('电影');
         $.getJSON('/video/movies/', data, function (data) {
             $('.mian_title ul li a:eq(0)').text(t);
-            var currentPage = location.search ? location.search.slice(6) : 1;
+            let currentPage = location.search ? location.search.slice(6) : 1;
             $('#current').text(currentPage);
             $('#total').text(data.pages);
             if (currentPage == '1') {
@@ -62,10 +62,29 @@ $(function () {
         $('.mian_title h2').text('电视剧');
         $.getJSON('/video/tvs/', data, function (data) {
             $('.mian_title ul li a:eq(0)').text(t);
-            $('#current').text(location.search ? location.search.slice(6) : 1);
+            let currentPage = location.search ? location.search.slice(6) : 1;
+            $('#current').text(currentPage);
             $('#total').text(data.pages);
-            for (var i = 0; i < data.results.length; i += 1) {
-                    var s = '<div class="v_pic">\n' +
+            if (currentPage == '1') {
+                $('#previous').hide();
+            }
+            if (currentPage == data.pages) {
+                $('#next').hide();
+            }
+            $('.pg a').eq(0).text(currentPage).attr('href', location.href.slice('?')[0] + '?page=' + currentPage);
+            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 1));
+            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 2));
+            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 3));
+            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 4));
+            if (location.search.slice(6) > data.pages - 4) {
+                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 4));
+                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 3));
+                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 2));
+                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 1));
+                $('.pg a').eq(4).text(data.pages).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + data.pages);
+            }
+            for (let i = 0; i < data.results.length; i += 1) {
+                    let s = '<div class="v_pic">\n' +
                         '                    <div class="v_title"></div>\n' +
                         '                    <a href="/cinema/tv_list_details/' + data.results[i].tv_name + '/"><img src="' + data.results[i].tv_img + '" title="' +
                         data.results[i].tv_name + '"></a></div>\n' +
@@ -89,8 +108,27 @@ $(function () {
         $('.mian_title h2').text('综艺');
         $.getJSON('/video/shows/', data, function (data) {
             $('.mian_title ul li a:eq(0)').text(t);
-            $('#current').text(location.search ? location.search.slice(6) : 1);
+            let currentPage = location.search ? location.search.slice(6) : 1;
+            $('#current').text(currentPage);
             $('#total').text(data.pages);
+            if (currentPage == '1') {
+                $('#previous').hide();
+            }
+            if (currentPage == data.pages) {
+                $('#next').hide();
+            }
+            $('.pg a').eq(0).text(currentPage).attr('href', location.href.slice('?')[0] + '?page=' + currentPage);
+            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 1));
+            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 2));
+            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 3));
+            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 4));
+            if (location.search.slice(6) > data.pages - 4) {
+                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 4));
+                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 3));
+                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 2));
+                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 1));
+                $('.pg a').eq(4).text(data.pages).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + data.pages);
+            }
             for (let i = 0; i < data.results.length; i += 1) {
                 let s = '<div class="v_pic">\n' +
                     '                    <div class="v_title"></div>\n' +
@@ -116,8 +154,27 @@ $(function () {
         $('.mian_title h2').text('动漫');
         $.getJSON('/video/animations/', data, function (data) {
             $('.mian_title ul li a:eq(0)').text(t);
-            $('#current').text(location.search ? location.search.slice(6) : 1);
+            let currentPage = location.search ? location.search.slice(6) : 1;
+            $('#current').text(currentPage);
             $('#total').text(data.pages);
+            if (currentPage == '1') {
+                $('#previous').hide();
+            }
+            if (currentPage == data.pages) {
+                $('#next').hide();
+            }
+            $('.pg a').eq(0).text(currentPage).attr('href', location.href.slice('?')[0] + '?page=' + currentPage);
+            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 1));
+            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 2));
+            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 3));
+            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 4));
+            if (location.search.slice(6) > data.pages - 4) {
+                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 4));
+                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 3));
+                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 2));
+                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 1));
+                $('.pg a').eq(4).text(data.pages).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + data.pages);
+            }
             for (let i = 0; i < data.results.length; i += 1) {
                 let s = '<div class="v_pic">\n' +
                     '                    <div class="v_title"></div>\n' +
@@ -143,8 +200,27 @@ $(function () {
         $('.mian_title h2').text('福利');
         $.getJSON('/video/fulis/', data, function (data) {
             $('.mian_title ul li a:eq(0)').text(t);
-            $('#current').text(location.search ? location.search.slice(6) : 1);
+            let currentPage = location.search ? location.search.slice(6) : 1;
+            $('#current').text(currentPage);
             $('#total').text(data.pages);
+            if (currentPage == '1') {
+                $('#previous').hide();
+            }
+            if (currentPage == data.pages) {
+                $('#next').hide();
+            }
+            $('.pg a').eq(0).text(currentPage).attr('href', location.href.slice('?')[0] + '?page=' + currentPage);
+            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 1));
+            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 2));
+            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 3));
+            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 4));
+            if (location.search.slice(6) > data.pages - 4) {
+                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 4));
+                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 3));
+                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 2));
+                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 1));
+                $('.pg a').eq(4).text(data.pages).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + data.pages);
+            }
             for (let i = 0; i < data.results.length; i += 1) {
                 let s = '<div class="v_pic">\n' +
                     '                    <div class="v_title"></div>\n' +
