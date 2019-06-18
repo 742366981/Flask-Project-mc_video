@@ -11,59 +11,59 @@
 <link href="{{ url_for('static', filename='css/jquery.mmenu.all.css') }}" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.mmenu.min.all.js') }}"></script>
 <script>
-$(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#other').mmenu();});</script>
+$(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#zy').mmenu();$('nav#dm').mmenu();$('nav#other').mmenu();});
+</script>
 </head>
 <body id="mobile_wrap">
 <div class="statusbar-overlay"> </div>
 <div class="panel-overlay"> </div>
 <div class="panel panel-left panel-cover">
-
 <nav id="dy">
     <ul class="mm-list mm-panel mm-opened mm-current" id="mm-0">
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='动作片') }}"> 动作</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='喜剧片') }}"> 喜剧</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='爱情片') }}"> 爱情</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='科幻片') }}"> 科幻</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='恐怖片') }}"> 恐怖</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='剧情片') }}"> 剧情</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='战争片') }}"> 战争</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='伦理片') }}"> 伦理</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='微电影') }}"> 微电影</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.movie_display', kind='纪录片') }}"> 纪录片</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='动作片') }}"> 动作</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='喜剧片') }}"> 喜剧</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='爱情片') }}"> 爱情</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='科幻片') }}"> 科幻</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='恐怖片') }}"> 恐怖</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='剧情片') }}"> 剧情</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='战争片') }}"> 战争</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='伦理片') }}"> 伦理</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='微电影') }}"> 微电影</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='纪录片') }}"> 纪录片</a></li>
     </ul>
 </nav>
 <nav id="dsj">
     <ul>
-        <li><a target="_blank" href="{{ url_for('cinema.tv_display', kind='国产剧') }}"> 国产</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.tv_display', kind='香港剧') }}"> 香港</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.tv_display', kind='韩国剧') }}"> 韩国</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.tv_display', kind='欧美剧') }}"> 欧美</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.tv_display', kind='海外剧') }}"> 海外</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.tv_display', kind='日本剧') }}"> 日本</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.tv_display', kind='台湾剧') }}"> 台湾</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.tv_display', kind='国产剧') }}"> 国产</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.tv_display', kind='香港剧') }}"> 香港</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.tv_display', kind='韩国剧') }}"> 韩国</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.tv_display', kind='欧美剧') }}"> 欧美</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.tv_display', kind='海外剧') }}"> 海外</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.tv_display', kind='日本剧') }}"> 日本</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.tv_display', kind='台湾剧') }}"> 台湾</a></li>
     </ul>
 </nav>
 <nav id="zy">
     <ul>
-        <li><a target="_blank" href="{{ url_for('cinema.show_display', kind='大陆') }}"> 大陆</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.show_display', kind='台湾') }}"> 台湾</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.show_display', kind='韩国') }}"> 韩国</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.show_display', kind='香港') }}"> 香港</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.show_display', kind='日本') }}"> 日本</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.show_display', kind='大陆') }}"> 大陆</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.show_display', kind='台湾') }}"> 台湾</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.show_display', kind='韩国') }}"> 韩国</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.show_display', kind='香港') }}"> 香港</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.show_display', kind='日本') }}"> 日本</a></li>
     </ul>
 </nav>
 <nav id="dm">
     <ul>
-        <li><a target="_blank" href="{{ url_for('cinema.animation_display', kind='大陆') }}"> 大陆</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.animation_display', kind='日本') }}"> 日本</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.animation_display', kind='美国') }}"> 美国</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.animation_display', kind='台湾') }}"> 台湾</a></li>
-        <li><a target="_blank" href="{{ url_for('cinema.animation_display', kind='其他') }}"> 其他</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.animation_display', kind='大陆') }}"> 大陆</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.animation_display', kind='日本') }}"> 日本</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.animation_display', kind='美国') }}"> 美国</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.animation_display', kind='台湾') }}"> 台湾</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.animation_display', kind='其他') }}"> 其他</a></li>
     </ul>
 </nav>
 <nav id="other">
     <ul>
-        <li><a target="_blank" href="{{ url_for('cinema.fuli_display', kind='all') }}"> 福利</a></li>
+        <li><a target="_self" href="{{ url_for('cinema.fuli_display', kind='all') }}"> 福利</a></li>
     </ul>
 </nav>
 </div>
@@ -77,7 +77,7 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#other').mmenu();});
                 <li><a href="#dy" class="meu open-panel">电影</a></li>
                 <li><a href="#dsj" class="meu open-panel">电视剧</a></li>
                 <li><a href="#zy" class="meu open-panel">综艺</a></li>
-                <li><a href="#dm;" class="meu open-panel">动漫</a></li>
+                <li><a href="#dm" class="meu open-panel">动漫</a></li>
                 <li><a href="#other" class="meu open-panel">其他</a></li>
             </ul>
           </div>
@@ -136,7 +136,7 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#other').mmenu();});
             <div id="fy">
                 <ul>
                     <li id="previous"><a href="">上一页</a></li>
-                    <li class="pg"><a hre>1</a></li>
+                    <li class="pg"><a href="">1</a></li>
                     <li class="pg"><a href="">2</a></li>
                     <li class="pg"><a href="">3</a></li>
                     <li class="pg"><a href="">4</a></li>

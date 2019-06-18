@@ -1,4 +1,6 @@
+import itertools
 import urllib.parse
+import re
 
 from flask import request
 from flask_restful import Resource
@@ -14,30 +16,46 @@ class MySource(Resource):
     # model = None
 
     def get(self):
-        all_resource = self.model.query
-        all_count = all_resource.count()
         try:
-            page = abs(int(request.args.get('page') or 1))
-            size = abs(int(request.args.get('size') or 30))
-            z_page, y = divmod(all_count, size)
-            kind = request.args.get('kind')
-            data = {'count': size}
-            if kind and self.model == Movie:
-                all_resource = all_resource.filter(self.model.movie_type == urllib.parse.unquote(kind))
+            if not re.search(r'search', request.path):
+                all_resource = self.model.query
                 all_count = all_resource.count()
+                page = abs(int(request.args.get('page') or 1))
+                size = abs(int(request.args.get('size') or 30))
                 z_page, y = divmod(all_count, size)
-            elif kind and self.model == Tv:
-                all_resource = all_resource.filter(self.model.tv_type == urllib.parse.unquote(kind))
-                all_count = all_resource.count()
+                kind = request.args.get('kind')
+                data = {'count': size}
+            else:
+                page = abs(int(request.args.get('page') or 1))
+                size = abs(int(request.args.get('size') or 30))
+                data = {'count': size}
+            if re.search(r'search', request.path):
+                keywords = urllib.parse.unquote(request.args.get('keywords'))
+                movies = Movie.query.filter(Movie.movie_name.contains(keywords))
+                tvs = Tv.query.filter(Tv.tv_name.contains(keywords))
+                shows =  Show.query.filter(Show.show_name.contains(keywords))
+                animations = Animation.query.filter(Animation.animation_name.contains(keywords))
+                fulis = Fuli.query.filter(Fuli.fuli_name.contains(keywords))
+                all_resource = list(itertools.chain(movies, tvs, shows, animations, fulis))
+                all_count = movies.count() + tvs.count() + shows.count() + animations.count() + fulis.count()
                 z_page, y = divmod(all_count, size)
-            elif kind and self.model == Show:
-                all_resource = all_resource.filter(self.model.area == urllib.parse.unquote(kind))
-                all_count = all_resource.count()
-                z_page, y = divmod(all_count, size)
-            elif kind and self.model == Animation:
-                all_resource = all_resource.filter(self.model.area == urllib.parse.unquote(kind))
-                all_count = all_resource.count()
-                z_page, y = divmod(all_count, size)
+            else:
+                if kind and self.model == Movie:
+                    all_resource = all_resource.filter(self.model.movie_type == urllib.parse.unquote(kind))
+                    all_count = all_resource.count()
+                    z_page, y = divmod(all_count, size)
+                elif kind and self.model == Tv:
+                    all_resource = all_resource.filter(self.model.tv_type == urllib.parse.unquote(kind))
+                    all_count = all_resource.count()
+                    z_page, y = divmod(all_count, size)
+                elif kind and self.model == Show:
+                    all_resource = all_resource.filter(self.model.area == urllib.parse.unquote(kind))
+                    all_count = all_resource.count()
+                    z_page, y = divmod(all_count, size)
+                elif kind and self.model == Animation:
+                    all_resource = all_resource.filter(self.model.area == urllib.parse.unquote(kind))
+                    all_count = all_resource.count()
+                    z_page, y = divmod(all_count, size)
             if page > z_page:
                 data['previous'] = request.path + '?page=' + str(page - 1) + '&size=' + str(size)
                 data['results'] = queryset_to_json(all_resource[-y:])
@@ -157,3 +175,9 @@ class FuliDetail(Detail):
     一部福利的详情
     """
     model = Fuli
+
+
+class Search(MySource):
+    """
+    搜索
+    """
