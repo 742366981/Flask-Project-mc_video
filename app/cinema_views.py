@@ -110,3 +110,12 @@ def fuli_display(kind):
     :return:
     """
     return render_template('content/display.htm')
+
+
+@cinema_blueprint.route('/search/', methods=['GET'])
+def search():
+    """
+    搜索页
+    :return:
+    """
+    return render_template('content/search.htm')

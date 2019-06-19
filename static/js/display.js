@@ -25,22 +25,22 @@ $(function () {
             if (currentPage == data.pages) {
                 $('#next').hide();
             }
-            $('.pg a').eq(0).text(currentPage).attr('href', location.href.slice('?')[0] + '?page=' + currentPage);
-            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 1));
-            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 2));
-            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 3));
-            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 4));
+            $('.pg a').eq(0).text(currentPage).attr('href', location.href.split('?')[0] + '?page=' + currentPage);
+            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
+            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
+            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
+            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
             if (location.search.slice(6) > data.pages - 4) {
-                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 4));
-                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 3));
-                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 2));
-                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 1));
-                $('.pg a').eq(4).text(data.pages).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + data.pages);
+                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
+                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
+                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 2));
+                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 1));
+                $('.pg a').eq(4).text(data.pages).attr('href', location.href.split('?')[0] + '?page=' + data.pages);
             }
             if (data.pages <= 5) {
                 $('.pg a').remove();
                 for (let i = 1; i < data.pages + 1; i += 1) {
-                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + i))).insertBefore('#next');
+                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.split('?')[0] + '?page=' + i))).insertBefore('#next');
                 }
             }
             for (let i = 0; i < data.results.length; i += 1) {
@@ -77,22 +77,22 @@ $(function () {
             if (currentPage == data.pages) {
                 $('#next').hide();
             }
-            $('.pg a').eq(0).text(currentPage).attr('href', location.href.slice('?')[0] + '?page=' + currentPage);
-            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 1));
-            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 2));
-            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 3));
-            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 4));
+            $('.pg a').eq(0).text(currentPage).attr('href', location.href.split('?')[0] + '?page=' + currentPage);
+            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
+            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
+            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
+            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
             if (location.search.slice(6) > data.pages - 4) {
-                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 4));
-                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 3));
-                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 2));
-                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 1));
-                $('.pg a').eq(4).text(data.pages).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + data.pages);
+                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
+                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
+                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 2));
+                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 1));
+                $('.pg a').eq(4).text(data.pages).attr('href', location.href.split('?')[0] + '?page=' + data.pages);
             }
             if (data.pages <= 5) {
                 $('.pg a').remove();
                 for (let i = 1; i < data.pages + 1; i += 1) {
-                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + i))).insertBefore('#next');
+                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.split('?')[0] + '?page=' + i))).insertBefore('#next');
                 }
             }
             for (let i = 0; i < data.results.length; i += 1) {
@@ -129,22 +129,22 @@ $(function () {
             if (currentPage == data.pages) {
                 $('#next').hide();
             }
-            $('.pg a').eq(0).text(currentPage).attr('href', location.href.slice('?')[0] + '?page=' + currentPage);
-            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 1));
-            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 2));
-            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 3));
-            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 4));
+            $('.pg a').eq(0).text(currentPage).attr('href', location.href.split('?')[0] + '?page=' + currentPage);
+            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
+            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
+            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
+            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
             if (location.search.slice(6) > data.pages - 4) {
-                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 4));
-                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 3));
-                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 2));
-                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 1));
-                $('.pg a').eq(4).text(data.pages).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + data.pages);
+                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
+                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
+                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 2));
+                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 1));
+                $('.pg a').eq(4).text(data.pages).attr('href', location.href.split('?')[0] + '?page=' + data.pages);
             }
             if (data.pages <= 5) {
                 $('.pg a').remove();
                 for (let i = 1; i < data.pages + 1; i += 1) {
-                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + i))).insertBefore('#next');
+                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.split('?')[0] + '?page=' + i))).insertBefore('#next');
                 }
             }
             for (let i = 0; i < data.results.length; i += 1) {
@@ -181,22 +181,22 @@ $(function () {
             if (currentPage == data.pages) {
                 $('#next').hide();
             }
-            $('.pg a').eq(0).text(currentPage).attr('href', location.href.slice('?')[0] + '?page=' + currentPage);
-            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 1));
-            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 2));
-            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 3));
-            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 4));
+            $('.pg a').eq(0).text(currentPage).attr('href', location.href.split('?')[0] + '?page=' + currentPage);
+            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
+            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
+            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
+            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
             if (location.search.slice(6) > data.pages - 4) {
-                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 4));
-                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 3));
-                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 2));
-                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 1));
-                $('.pg a').eq(4).text(data.pages).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + data.pages);
+                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
+                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
+                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 2));
+                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 1));
+                $('.pg a').eq(4).text(data.pages).attr('href', location.href.split('?')[0] + '?page=' + data.pages);
             }
             if (data.pages <= 5) {
                 $('.pg a').remove();
                 for (let i = 1; i < data.pages + 1; i += 1) {
-                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + i))).insertBefore('#next');
+                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.split('?')[0] + '?page=' + i))).insertBefore('#next');
                 }
             }
             for (let i = 0; i < data.results.length; i += 1) {
@@ -233,22 +233,22 @@ $(function () {
             if (currentPage == data.pages) {
                 $('#next').hide();
             }
-            $('.pg a').eq(0).text(currentPage).attr('href', location.href.slice('?')[0] + '?page=' + currentPage);
-            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 1));
-            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 2));
-            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 3));
-            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (Number(currentPage) + 4));
+            $('.pg a').eq(0).text(currentPage).attr('href', location.href.split('?')[0] + '?page=' + currentPage);
+            $('.pg a').eq(1).text((Number(currentPage) + 1)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
+            $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
+            $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
+            $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
             if (location.search.slice(6) > data.pages - 4) {
-                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 4));
-                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 3));
-                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 2));
-                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + (data.pages - 1));
-                $('.pg a').eq(4).text(data.pages).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + data.pages);
+                $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
+                $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
+                $('.pg a').eq(2).text(data.pages - 2).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 2));
+                $('.pg a').eq(3).text(data.pages - 1).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 1));
+                $('.pg a').eq(4).text(data.pages).attr('href', location.href.split('?')[0] + '?page=' + data.pages);
             }
             if (data.pages <= 5) {
                 $('.pg a').remove();
                 for (let i = 1; i < data.pages + 1; i += 1) {
-                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.slice('?')[0].split('/').slice(0,-1).join('/') + '?page=' + i))).insertBefore('#next');
+                    $($('<li>').addClass('pg').append($('<a>').text(i).attr('href', location.href.split('?')[0] + '?page=' + i))).insertBefore('#next');
                 }
             }
             for (let i = 0; i < data.results.length; i += 1) {
