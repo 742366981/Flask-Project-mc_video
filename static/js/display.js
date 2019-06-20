@@ -30,6 +30,8 @@ $(function () {
             $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
             $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
             $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
+            $('#previous a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) - 1));
+            $('#next a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
             if (location.search.slice(6) > data.pages - 4) {
                 $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
                 $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
@@ -82,6 +84,8 @@ $(function () {
             $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
             $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
             $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
+            $('#previous a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) - 1));
+            $('#next a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
             if (location.search.slice(6) > data.pages - 4) {
                 $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
                 $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
@@ -134,6 +138,8 @@ $(function () {
             $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
             $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
             $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
+            $('#previous a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) - 1));
+            $('#next a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
             if (location.search.slice(6) > data.pages - 4) {
                 $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
                 $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
@@ -186,6 +192,8 @@ $(function () {
             $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
             $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
             $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
+            $('#previous a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) - 1));
+            $('#next a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
             if (location.search.slice(6) > data.pages - 4) {
                 $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
                 $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
@@ -238,6 +246,8 @@ $(function () {
             $('.pg a').eq(2).text((Number(currentPage) + 2)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 2));
             $('.pg a').eq(3).text((Number(currentPage) + 3)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 3));
             $('.pg a').eq(4).text((Number(currentPage) + 4)).attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 4));
+            $('#previous a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) - 1));
+            $('#next a').attr('href', location.href.split('?')[0] + '?page=' + (Number(currentPage) + 1));
             if (location.search.slice(6) > data.pages - 4) {
                 $('.pg a').eq(0).text(data.pages - 4).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 4));
                 $('.pg a').eq(1).text(data.pages - 3).attr('href', location.href.split('?')[0] + '?page=' + (data.pages - 3));
@@ -261,4 +271,12 @@ $(function () {
             }
         });
     }
+    //搜索按钮
+    $('#btn').on('click', function() {
+        if ($('#keywords').val()) {
+            location.href = location.protocol + '//' + document.domain + ':' + location.port + '/cinema/search/?keywords=' + $('#keywords').val() + '&page=1'
+        } else {
+            return false;
+        }
+    });
 });

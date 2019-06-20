@@ -85,10 +85,10 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#zy').mmenu();$('nav
             <div class="logo"> <a href="{{ url_for('cinema.movie_display', kind='动作片') }}"><img src=""></a></div>
           </div>
           <div class="h_so">
-              <form  action="/search.php" method="post">
-      <input name="searchword" type="text"  class="h_so_inp h_so_inp_w1">
-      <input value="" type="submit" class="so_btn">
-      </form>
+              <form action="javascript:void(0);">
+                <input id="keywords" placeholder="输入影片名" type="text" class="h_so_inp h_so_inp_w1">
+                <input id="btn"  value="" type="submit" class="so_btn">
+              </form>
           </div>
         </div>
         <div id="focus" class="focus">

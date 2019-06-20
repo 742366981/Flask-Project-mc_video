@@ -4,6 +4,7 @@ import re
 
 from flask import request
 from flask_restful import Resource
+from sqlalchemy import or_
 
 from app.models import Movie, Tv, Fuli, Animation, Show
 from utils.functions import queryset_to_json
@@ -31,11 +32,11 @@ class MySource(Resource):
                 data = {'count': size}
             if re.search(r'search', request.path):
                 keywords = urllib.parse.unquote(request.args.get('keywords'))
-                movies = Movie.query.filter(Movie.movie_name.contains(keywords))
-                tvs = Tv.query.filter(Tv.tv_name.contains(keywords))
-                shows =  Show.query.filter(Show.show_name.contains(keywords))
-                animations = Animation.query.filter(Animation.animation_name.contains(keywords))
-                fulis = Fuli.query.filter(Fuli.fuli_name.contains(keywords))
+                movies = Movie.query.filter(or_(Movie.movie_name.contains(keywords), Movie.staring.contains(keywords)))
+                tvs = Tv.query.filter(or_(Tv.tv_name.contains(keywords), Tv.staring.contains(keywords)))
+                shows =  Show.query.filter(or_(Show.show_name.contains(keywords), Show.staring.contains(keywords)))
+                animations = Animation.query.filter(or_(Animation.animation_name.contains(keywords), Animation.staring.contains(keywords)))
+                fulis = Fuli.query.filter(or_(Fuli.fuli_name.contains(keywords), Fuli.staring.contains(keywords)))
                 all_resource = list(itertools.chain(movies, tvs, shows, animations, fulis))
                 all_count = movies.count() + tvs.count() + shows.count() + animations.count() + fulis.count()
                 z_page, y = divmod(all_count, size)

@@ -85,19 +85,19 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#zy').mmenu();$('nav
             <div class="logo"> <a href="javascript:void(0);"><img src=""></a></div>
           </div>
           <div class="h_so">
-              <form  action="/search.php" method="post">
-      <input name="searchword" type="text"  class="h_so_inp h_so_inp_w1">
-      <input value="" type="submit" class="so_btn">
-      </form>
+              <form action="javascript:void(0);">
+                <input id="keywords" placeholder="输入影片名" type="text" class="h_so_inp h_so_inp_w1">
+                <input id="btn"  value="" type="submit" class="so_btn">
+              </form>
           </div>
         </div>
         <div id="focus" class="focus">
           <div class="bd">
             <ul>
- <li> <a class="pic" href="javascript:void(0);"><img src="{{ url_for('static', filename='img/s1.jpg') }}" /></a> <a class="tit" href="javascript:void(0)">史诗级动画</a> </li>
-<li> <a class="pic" href="javascript:void(0);"><img src="{{ url_for('static', filename='img/s1.jpg') }}" /></a> <a class="tit" href="javascript:void(0);">漫威新英雄诞生.前工程师斯科特出狱后没想到一次意外的偷盗事件让他成为了新一代“蚁人”</a> </li>
- <li> <a class="pic" href="javascript:void(0);"><img src="{{ url_for('static', filename='img/s1.jpg') }}" /></a> <a class="tit" href="javascript:void(0);">老炮儿在北京话中，专指提笼遛鸟，无所事事的老混混儿。</a> </li>
- <li> <a class="pic" href="javascript:void(0);"><img src="{{ url_for('static', filename='img/s1.jpg') }}" /></a> <a class="tit" href="javascript:void(0);">一幕幕生猛、搞笑的青春趣事</a> </li>
+ <li> <a class="pic" href="javascript:void(0);"><img src="" /></a> <a class="tit" href="javascript:void(0)"></a> </li>
+<li> <a class="pic" href="javascript:void(0);"><img src="" /></a> <a class="tit" href="javascript:void(0);"></a> </li>
+ <li> <a class="pic" href="javascript:void(0);"><img src="" /></a> <a class="tit" href="javascript:void(0);"></a> </li>
+ <li> <a class="pic" href="javascript:void(0);"><img src="" /></a> <a class="tit" href="javascript:void(0);"></a> </li>
             </ul>
           </div>
           <div class="hd">
@@ -110,9 +110,9 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#zy').mmenu();$('nav
 					slideCell:"#focus",
 					titCell:".hd ul",
 					mainCell:".bd ul", 
-					effect:"leftLoop", 
+					effect:"leftLoop",
 					autoPage:true,
-					autoPlay:true 
+					autoPlay:true
 				});
 			  </script>
         <div id="s1" class="d_main w98 mian_bo">
