@@ -16,5 +16,23 @@ $(function () {
             $('#dz').append($('<li>').text(data.results[i].num).append($('<a>').attr({href: data.results[i].play_url,
                 title: data.results[i].num, target: '_self', class: 'd_btn'}).text('在线播放')))
         }
-    })
+    });
+    $.getJSON('/video/' + s.replace('_', 's') + '/', {page: 6, size: 3}, function (data) {
+        for (let i = 0; i < data.results.length; i += 1) {
+            let ss = '<div class="v_pic">\n' +
+                '                    <div class="v_title"></div>\n' +
+                '                    <a href="/cinema/' + s + 'list_details/' + data.results[i][s + 'name'] + '/"><img onerror="this.src = \'/static/img/load_error.jpg\' src="' + data.results[i][s + 'img'] + '" title="' +
+                data.results[i].movie_name + '"></a></div>\n' +
+                '                    <a href="/cinema/' + s + 'list_details/' + data.results[i][s + 'name'] + '/"> <h2>' + data.results[i][s + 'name'].slice(0, 8) + '</h2></a>';
+            $('.clearfix:last').append($('<li>').append(ss));
+        }
+    });
+    //搜索按钮
+    $('#btn').on('click', function() {
+        if ($('#keywords').val()) {
+            location.href = location.protocol + '//' + document.domain + ':' + location.port + '/cinema/search/?keywords=' + $('#keywords').val() + '&page=1'
+        } else {
+            return false;
+        }
+    });
 });
