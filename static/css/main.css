@@ -207,7 +207,7 @@
 .mian_title .more {
 	position: absolute;
 	display: block;
-	background-image: url(../img/more.png);
+	/*background-image: url(../img/more.png);*/
 	background-repeat: no-repeat;
 	width: 40px;
 	height: 40px;
@@ -217,7 +217,7 @@
 }
 .mian_title h2 {
 	text-indent: 15px;
-	background-image: url(../img/title_icon.png);
+	/*background-image: url(../img/title_icon.png);*/
 	background-repeat: no-repeat;
 	background-size: 4px 18px;
 	background-position: left center;
@@ -273,7 +273,7 @@
 	bottom: 0;
 	left: 0;
 	line-height: 22px;
-	background: url(../img/focusBg.png) repeat-x left top;
+	/*background: url(../img/focusBg.png) repeat-x left top;*/
 	color: #fff;
 	text-indent: 5px;
 	font-size: 12px;

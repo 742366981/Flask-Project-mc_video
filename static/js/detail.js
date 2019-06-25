@@ -17,9 +17,9 @@ $(function () {
         for (let i = 0; i < data.results.length; i += 1) {
             let ss = '<div class="v_pic">\n' +
                 '                    <div class="v_title"></div>\n' +
-                '                    <a href="/cinema/' + s + 'details/' + data.results[i].id + '/"><img onerror="this.src = \'/static/img/load_error.jpg\' src="' + data.results[i][s + 'img'] + '" title="' +
+                '                    <a href="/cinema/' + s + 'details/' + data.results[i].id + '/"><img onerror="this.src = \'/static/img/load_error.jpg\'" src="' + data.results[i][s + 'img'] + '" title="' +
                 data.results[i].movie_name + '"></a></div>\n' +
-                '                    <a href="/cinema/' + s + 'details/' + data.results[i].id + '/"> <h2>' + data.results[i][s + 'name'].slice(0, 8) + '</h2></a>';
+                '                    <a href="/cinema/' + s + 'details/' + data.results[i].id + '/"> <h2>' + data.results[i][s + 'name'].slice(0, 7) + '</h2></a>';
             $('.clearfix:last').append($('<li>').append(ss));
         }
     });

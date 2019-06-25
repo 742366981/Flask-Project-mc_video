@@ -92,35 +92,35 @@ $(function () {
                     '                    <div class="v_title"></div>\n' +
                     '                    <a href="/cinema/movie_details/' + data.results[i].id + '/"><img onerror="this.src = \'/static/img/load_error.jpg\'" src="' + data.results[i].movie_img + '" title="' +
                     data.results[i].movie_name + '"></a></div>\n' +
-                    '                    <a href="/cinema/movie_details/' + data.results[i].id + '/"> <h2>' + data.results[i].movie_name.slice(0, 9) + '</h2></a>';
+                    '                    <a href="/cinema/movie_details/' + data.results[i].id + '/"> <h2>' + data.results[i].movie_name.slice(0, 8) + '</h2></a>';
                 $('#s1 .clearfix').append($('<li>').append(s));
             } else if (data.results[i].tv_name) {
                 let s = '<div class="v_pic">\n' +
                     '                    <div class="v_title"></div>\n' +
                     '                    <a href="/cinema/tv_list_details/' + data.results[i].tv_name + '/"><img onerror="this.src = \'/static/img/load_error.jpg\'" src="' + data.results[i].tv_img + '" title="' +
                     data.results[i].tv_name + '"></a></div>\n' +
-                    '                    <a href="/cinema/tv_list_details/' + data.results[i].tv_name + '/"> <h2>' + data.results[i].tv_name.slice(0, 9) + '</h2></a>';
+                    '                    <a href="/cinema/tv_list_details/' + data.results[i].tv_name + '/"> <h2>' + data.results[i].tv_name.slice(0, 8) + '</h2></a>';
                 $('#s1 .clearfix').append($('<li>').append(s));
             } else if (data.results[i].show_name) {
                 let s = '<div class="v_pic">\n' +
                     '                    <div class="v_title"></div>\n' +
                     '                    <a href="/cinema/show_list_details/' + data.results[i].show_name + '/"><img onerror="this.src = \'/static/img/load_error.jpg\'" src="' + data.results[i].show_img + '" title="' +
                     data.results[i].show_name + '"></a></div>\n' +
-                    '                    <a href="/cinema/show_list_details/' + data.results[i].show_name + '/"> <h2>' + data.results[i].show_name.slice(0, 9) + '</h2></a>';
+                    '                    <a href="/cinema/show_list_details/' + data.results[i].show_name + '/"> <h2>' + data.results[i].show_name.slice(0, 8) + '</h2></a>';
                 $('#s1 .clearfix').append($('<li>').append(s));
             } else if (data.results[i].animation_name) {
                 let s = '<div class="v_pic">\n' +
                     '                    <div class="v_title"></div>\n' +
                     '                    <a href="/cinema/animation_list_details/' + data.results[i].animation_name + '/"><img onerror="this.src = \'/static/img/load_error.jpg\'" src="' + data.results[i].animation_img + '" title="' +
                     data.results[i].animation_name + '"></a></div>\n' +
-                    '                    <a href="/cinema/animation_list_details/' + data.results[i].animation_name + '/"> <h2>' + data.results[i].animation_name.slice(0, 9) + '</h2></a>';
+                    '                    <a href="/cinema/animation_list_details/' + data.results[i].animation_name + '/"> <h2>' + data.results[i].animation_name.slice(0, 8) + '</h2></a>';
                 $('#s1 .clearfix').append($('<li>').append(s));
             } else if (data.results[i].fuli_name) {
                 let s = '<div class="v_pic">\n' +
                     '                    <div class="v_title"></div>\n' +
                     '                    <a href="/cinema/fuli_list_details/' + data.results[i].id + '/"><img onerror="this.src = \'/static/img/load_error.jpg\'" src="' + data.results[i].fuli_img + '" title="' +
                     data.results[i].fuli_name + '"></a></div>\n' +
-                    '                    <a href="/cinema/fuli_list_details/' + data.results[i].id + '/"> <h2>' + data.results[i].fuli_name.slice(0, 9) + '</h2></a>';
+                    '                    <a href="/cinema/fuli_list_details/' + data.results[i].id + '/"> <h2>' + data.results[i].fuli_name.slice(0, 8) + '</h2></a>';
                 $('#s1 .clearfix').append($('<li>').append(s));
             }
         }

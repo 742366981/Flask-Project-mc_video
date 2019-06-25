@@ -61,6 +61,11 @@ $(function () {
         } else {
             data = {size: 30, kind: location.href.split('/')[5]};
             t = decodeURI(location.href.split('/')[5]).slice(0,2);
+            if (decodeURI(data.kind) == '纪录片') {
+                t = '纪录片';
+            } else if (decodeURI(data.kind) == '微电影') {
+                t = '微电影';
+            }
         }
         if (location.search) {
             data.page = location.search.slice(6);

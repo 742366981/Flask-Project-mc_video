@@ -6,6 +6,7 @@
 <title>MC影视</title>
 <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ url_for('static', filename='css/rest.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="shortcut icon" type="image/x-icon">
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.12.4.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/TouchSlide.1.1.js') }}"></script>
 <script src="{{ url_for('static', filename='js/xunlei.js') }}"></script>
@@ -27,7 +28,7 @@
     <div class="so_list clearfix w98 v_txt">
       <ul>
         <li>
-          <div class="so_pic"><img id="tp" src=""></div>
+          <div class="so_pic"><img id="tp" onerror="this.src = '/static/img/load_error.jpg'" src=""></div>
           <h2 id="mz"></h2>
           <p id="zy"><span>主演：</span><a href='javascript:void(0);'></a>&nbsp;</p>
           <p><span>类型：</span><span style="color: #000;" id="lx"></span></p>
