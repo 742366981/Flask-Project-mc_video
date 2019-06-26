@@ -7,9 +7,10 @@ from app.models import db
 from app.api_views import *
 
 app = Flask(__name__)
-app.register_blueprint(cinema_blueprint, url_prefix='/cinema')
+app.register_blueprint(cinema_blueprint)
 app.config.update(RESTFUL_JSON=dict(ensure_ascii=False))
 api = Api(app)
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SQLALCHEMY_ECHO'] = True
 db.init_app(app)

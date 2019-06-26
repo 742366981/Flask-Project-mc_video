@@ -28,7 +28,7 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#zy').mmenu();$('nav
         <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='恐怖片') }}"> 恐怖</a></li>
         <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='剧情片') }}"> 剧情</a></li>
         <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='战争片') }}"> 战争</a></li>
-        <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='伦理片') }}"> 伦理</a></li>
+        <li id="ll" style="display: none;"><a target="_self" href="{{ url_for('cinema.movie_display', kind='伦理片') }}"> 伦理</a></li>
         <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='微电影') }}"> 微电影</a></li>
         <li><a target="_self" href="{{ url_for('cinema.movie_display', kind='纪录片') }}"> 纪录片</a></li>
     </ul>
@@ -82,7 +82,7 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#zy').mmenu();$('nav
                 <li><a href="#other" class="meu open-panel">其他</a></li>
             </ul>
           </div>
-          <div class="h_logo"><a href="javascript:void(0);" class="h_nav">最新</a><a href="javascript:void(0);" class="h_nav">排行榜</a>
+          <div class="h_logo"><a href="javascript:void(0);" class="h_nav">登录</a><a href="javascript:void(0);" class="h_nav">注册</a>
               <div class="logo"> <a href="javascript:void(0);"><img src=""></a></div>
           </div>
           <div class="h_so">
@@ -153,7 +153,9 @@ $(function(){$('nav#dy').mmenu();$('nav#dsj').mmenu();$('nav#zy').mmenu();$('nav
     </div>
   </div>
 </div>
-<span style="display:none;"></span><br /><br style="margin-top:70px" />MC影视
+<div ondblclick="$('#ll').show(); localStorage.ll = true;" style="text-align: center; font: 20px arial;">
+    MC影视
+</div>
 <script src="{{ url_for('static', filename='js/search.js') }}"></script>
 </body>
 </html>

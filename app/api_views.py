@@ -4,9 +4,9 @@ import re
 
 from flask import request
 from flask_restful import Resource
-from sqlalchemy import or_
+from sqlalchemy import or_, not_
 
-from app.models import Movie, Tv, Fuli, Animation, Show
+from app.models import Movie, Tv, Fuli, Animation, Show, db
 from utils.functions import queryset_to_json
 
 
@@ -19,7 +19,11 @@ class MySource(Resource):
     def get(self):
         try:
             if not re.search(r'search', request.path):
-                all_resource = self.model.query
+                all_resource = self.model.query.order_by(self.model.update_time.desc())
+                if  self.model == Movie:
+                    all_resource = all_resource.filter(not_(self.model.movie_type == '伦理片'))
+                    if request.args.get('ll'):
+                        all_resource = self.model.query.order_by(self.model.update_time.desc())
                 all_count = all_resource.count()
                 page = abs(int(request.args.get('page') or 1))
                 size = abs(int(request.args.get('size') or 30))
@@ -32,12 +36,14 @@ class MySource(Resource):
                 data = {'count': size}
             if re.search(r'search', request.path):
                 keywords = urllib.parse.unquote(request.args.get('keywords'))
-                movies = Movie.query.filter(or_(Movie.movie_name.contains(keywords), Movie.staring.contains(keywords)))
+                movies = Movie.query.filter(or_(Movie.movie_name.contains(keywords), Movie.staring.contains(keywords)), not_(Movie.movie_type == '伦理片'))
+                if request.args.get('ll'):
+                    movies = Movie.query.filter(or_(Movie.movie_name.contains(keywords), Movie.staring.contains(keywords)))
                 tvs = Tv.query.filter(or_(Tv.tv_name.contains(keywords), Tv.staring.contains(keywords)))
                 shows =  Show.query.filter(or_(Show.show_name.contains(keywords), Show.staring.contains(keywords)))
                 animations = Animation.query.filter(or_(Animation.animation_name.contains(keywords), Animation.staring.contains(keywords)))
                 fulis = Fuli.query.filter(or_(Fuli.fuli_name.contains(keywords), Fuli.staring.contains(keywords)))
-                all_resource = list(itertools.chain(movies, tvs, shows, animations, fulis))
+                all_resource = tuple(itertools.chain(movies, tvs, shows, animations, fulis))
                 all_count = movies.count() + tvs.count() + shows.count() + animations.count() + fulis.count()
                 z_page, y = divmod(all_count, size)
             else:

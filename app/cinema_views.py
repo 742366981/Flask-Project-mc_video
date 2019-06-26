@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-cinema_blueprint = Blueprint('cinema', __name__)
+cinema_blueprint = Blueprint('cinema', __name__, url_prefix='/cinema')
 
 
 @cinema_blueprint.route('/index/', methods=['GET'])

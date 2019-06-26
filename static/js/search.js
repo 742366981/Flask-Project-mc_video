@@ -3,52 +3,52 @@ $(function () {
         $('#focus .pic:eq(1)').add('#focus .pic:eq(5)').attr('href', localStorage.dy_url).children().attr('src', localStorage.dy_img).css({'width': '375x', 'height': '125px'});
         $('#focus .tit:eq(1)').add('#focus .tit:eq(5)').attr('href', localStorage.dy_url).text(localStorage.dy_summary)
     } else {
-        $.getJSON('/video/movies/?size=1', function(data) {
-            $('#focus .pic:eq(1)').add('#focus .pic:eq(5)').attr('href', '/cinema/movie_details/' + data.results[0].id + '/').children().attr('src', data.results[0].movie_img).css({'width': '375x', 'height': '125px'});
-            $('#focus .tit:eq(1)').add('#focus .tit:eq(5)').attr('href', '/cinema/movie_details/' + data.results[0].id + '/').text(data.results[0].summary);
-            localStorage.dy_name = data.results[0].movie_name;
-            localStorage.dy_url = '/cinema/movie_details/' + data.results[0].id + '/';
-            localStorage.dy_img = data.results[0].movie_img;
-            localStorage.dy_summary = data.results[0].summary;
+        $.getJSON('/video/movies/?size=10', function(data) {
+            $('#focus .pic:eq(1)').add('#focus .pic:eq(5)').attr('href', '/cinema/movie_details/' + data.results[9].id + '/').children().attr('src', data.results[9].movie_img).css({'width': '375x', 'height': '125px'});
+            $('#focus .tit:eq(1)').add('#focus .tit:eq(5)').attr('href', '/cinema/movie_details/' + data.results[9].id + '/').text(data.results[9].summary);
+            localStorage.dy_name = data.results[9].movie_name;
+            localStorage.dy_url = '/cinema/movie_details/' + data.results[9].id + '/';
+            localStorage.dy_img = data.results[9].movie_img;
+            localStorage.dy_summary = data.results[9].summary;
         });
     }
     if (localStorage.dsj_name) {
         $('#focus .pic:eq(2)').attr('href', localStorage.dsj_url).children().attr('src', localStorage.dsj_img).css({'width': '375x', 'height': '125px'});
         $('#focus .tit:eq(2)').attr('href', localStorage.dsj_url).text(localStorage.dsj_summary)
     } else {
-        $.getJSON('/video/tvs/?size=1', function(data) {
-            $('#focus .pic:eq(2)').attr('href', '/cinema/tv_list_details/' + data.results[0].tv_name + '/').children().attr('src', data.results[0].tv_img).css({'width': '375x', 'height': '125px'});
-            $('#focus .tit:eq(2)').attr('href', '/cinema/tv_list_details/' + data.results[0].tv_name + '/').text(data.results[0].summary);
-            localStorage.dsj_name = data.results[0].tv_name;
-            localStorage.dsj_url = '/cinema/tv_list_details/' + data.results[0].tv_name + '/';
-            localStorage.dsj_img = data.results[0].tv_img;
-            localStorage.dsj_summary = data.results[0].summary;
+        $.getJSON('/video/tvs/?size=10', function(data) {
+            $('#focus .pic:eq(2)').attr('href', '/cinema/tv_list_details/' + data.results[9].tv_name + '/').children().attr('src', data.results[9].tv_img).css({'width': '375x', 'height': '125px'});
+            $('#focus .tit:eq(2)').attr('href', '/cinema/tv_list_details/' + data.results[9].tv_name + '/').text(data.results[9].summary);
+            localStorage.dsj_name = data.results[9].tv_name;
+            localStorage.dsj_url = '/cinema/tv_list_details/' + data.results[9].tv_name + '/';
+            localStorage.dsj_img = data.results[9].tv_img;
+            localStorage.dsj_summary = data.results[9].summary;
         });
     }
     if (localStorage.zy_name) {
         $('#focus .pic:eq(3)').attr('href', localStorage.zy_url).children().attr('src', localStorage.zy_img).css({'width': '375x', 'height': '125px'});
         $('#focus .tit:eq(3)').attr('href', localStorage.zy_url).text(localStorage.zy_summary)
     } else {
-        $.getJSON('/video/shows/?size=1', function(data) {
-            $('#focus .pic:eq(3)').attr('href', '/cinema/show_list_details/' + data.results[0].show_name + '/').children().attr('src', data.results[0].show_img).css({'width': '375x', 'height': '125px'});
-            $('#focus .tit:eq(3)').attr('href', '/cinema/show_list_details/' + data.results[0].show_name + '/').text(data.results[0].summary);
-            localStorage.zy_name = data.results[0].show_name;
-            localStorage.zy_url = '/cinema/show_list_details/' + data.results[0].show_name + '/';
-            localStorage.zy_img = data.results[0].show_img;
-            localStorage.zy_summary = data.results[0].summary;
+        $.getJSON('/video/shows/?size=10', function(data) {
+            $('#focus .pic:eq(3)').attr('href', '/cinema/show_list_details/' + data.results[9].show_name + '/').children().attr('src', data.results[9].show_img).css({'width': '375x', 'height': '125px'});
+            $('#focus .tit:eq(3)').attr('href', '/cinema/show_list_details/' + data.results[9].show_name + '/').text(data.results[9].summary);
+            localStorage.zy_name = data.results[9].show_name;
+            localStorage.zy_url = '/cinema/show_list_details/' + data.results[9].show_name + '/';
+            localStorage.zy_img = data.results[9].show_img;
+            localStorage.zy_summary = data.results[9].summary;
         });
     }
     if (localStorage.dm_name) {
         $('#focus .pic:eq(4)').add('#focus .pic:eq(0)').attr('href', localStorage.dm_url).children().attr('src', localStorage.dm_img).css({'width': '375x', 'height': '125px'});
         $('#focus .tit:eq(4)').add('#focus .tit:eq(0)').attr('href', localStorage.dm_url).text(localStorage.dm_summary)
     } else {
-        $.getJSON('/video/animations/?size=1', function(data) {
-            $('#focus .pic:eq(4)').add('#focus .pic:eq(0)').attr('href', '/cinema/animation_list_details/' + data.results[0].animation_name + '/').children().attr('src', data.results[0].animation_img).css({'width': '375x', 'height': '125px'});
-            $('#focus .tit:eq(4)').add('#focus .tit:eq(0)').attr('href', '/cinema/animation_list_details/' + data.results[0].animation_name + '/').text(data.results[0].summary);
-            localStorage.dm_name = data.results[0].animation_name;
-            localStorage.dm_url = '/cinema/animation_list_details/' + data.results[0].animation_name + '/';
-            localStorage.dm_img = data.results[0].animation_img;
-            localStorage.dm_summary = data.results[0].summary;
+        $.getJSON('/video/animations/?size=10', function(data) {
+            $('#focus .pic:eq(4)').add('#focus .pic:eq(0)').attr('href', '/cinema/animation_list_details/' + data.results[9].animation_name + '/').children().attr('src', data.results[9].animation_img).css({'width': '375x', 'height': '125px'});
+            $('#focus .tit:eq(4)').add('#focus .tit:eq(0)').attr('href', '/cinema/animation_list_details/' + data.results[9].animation_name + '/').text(data.results[9].summary);
+            localStorage.dm_name = data.results[9].animation_name;
+            localStorage.dm_url = '/cinema/animation_list_details/' + data.results[9].animation_name + '/';
+            localStorage.dm_img = data.results[9].animation_img;
+            localStorage.dm_summary = data.results[9].summary;
         });
     }
     let t;
@@ -56,6 +56,9 @@ $(function () {
     data = {size: 30, keywords: location.search.split('&')[0].slice(10), page: location.search.split('&')[1].slice(5)};
     t = decodeURI(location.search.split('&')[0].slice(10));
     $('.mian_title h2').text('与"' + t + '"相关搜索结果');
+    if (localStorage.ll) {
+            data.ll = true
+        }
     $.getJSON('/video/search/', data, function (data) {
         let currentPage = location.search.split('&')[1].slice(5);
         $('#current').text(currentPage);
