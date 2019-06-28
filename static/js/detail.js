@@ -4,11 +4,11 @@ $(function () {
     $.getJSON(url, function (data) {
         $('#tp').attr('src', data[s + 'img']);
         $('#mz').text(data[s + 'name']);
-        $('#zy a').text(data['staring']);
+        $('#zy a').text(data['staring']).css('color', '#000');
         $('#lx').text(data[s + 'type']);
         $('#dq').text(data['area']);
         $('#nf').text(data['release_time']);
-        $('#dy a').text(data['director']);
+        $('#dy a').text(data['director']).css('color', '#000');
         $('#jqjj').text(data['summary']);
         $('#dz').attr('href', data['play_url']);
         $('#dz')[0].nextSibling.textContent = data[s + 'name'];
