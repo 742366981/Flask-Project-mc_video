@@ -22,7 +22,7 @@
             <input id="btn"  value="" type="submit" class="so_btn">
         </form>
     </div>
-    <a href="javascript:void(0)" class="home"></a> <span>剧情介绍</span> </div>
+    <a href="{{ url_for('cinema.index') }}" class="home"></a> <span>剧情介绍</span> </div>
 
   <div  class="w98 mian_bo">
     <div class="so_list clearfix w98 v_txt">
@@ -87,7 +87,9 @@
   </div>
 </div>
 
-<span style="display:none"></span><br /><br style="margin-top:70px" />MC影视
+<div ondblclick="$('#ll').show(); localStorage.ll = true;" style="text-align: center; font: 20px arial;">
+    MC影视
+</div>
 <script src="{{ url_for('static', filename='js/detail.js') }}"></script>
 </body>
 </html>

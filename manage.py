@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 from flask_restful import Api
 from flask_script import Manager
 
@@ -10,7 +10,6 @@ app = Flask(__name__)
 app.register_blueprint(cinema_blueprint)
 app.config.update(RESTFUL_JSON=dict(ensure_ascii=False))
 api = Api(app)
-
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SQLALCHEMY_ECHO'] = True
 db.init_app(app)
@@ -26,6 +25,11 @@ api.add_resource(MovieDetail, '/video/movie_details/<int:id>/')
 api.add_resource(FuliDetail, '/video/fuli_details/<int:id>/')
 api.add_resource(Search, '/video/search/')
 manager = Manager(app)
+
+
+@app.route('/', methods=['GET'])
+def real_index():
+    return redirect(url_for('cinema.index'))
 
 
 if __name__ == '__main__':
